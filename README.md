@@ -1,8 +1,48 @@
 # Lab-7_202001404
-# Name: Aditya Patel
-# ID: 202001404
+# Aditya Patel
+# 202001404
 
 ## Previous Date Problem
+
+### Equivalence Partitioning Test Cases:
+
+        package tests;
+        
+        import static org.junit.Assert.assertEquals;
+        import java.time.LocalDate;
+        import org.junit.Test;
+
+        public class PreviousDateTest {
+        @Test
+        public void test() {
+        
+		   // Test case 1: Valid input
+        int day1 = 1, month1 = 1, year1 = 1900;
+        LocalDate expected1 = LocalDate.of(1899, 12, 31);
+        LocalDate result1 = PreviousDate.getPreviousDate(day1, month1, year1);
+        assertEquals(expected1,result1);
+
+        // Test case 2: Invalid day
+        int day2 = 32, month2 = 12, year2 = 2023;
+        LocalDate expected2 = null;
+        LocalDate result2 = PreviousDate.getPreviousDate(day2, month2, year2);
+        assert result2 == expected2;
+
+        // Test case 3: Invalid month
+        int day3 = 15, month3 = 13, year3 = 2024;
+        LocalDate expected3 = null;
+        LocalDate result3 = PreviousDate.getPreviousDate(day3, month3, year3);
+        assert result3 == expected3;
+
+        // Test case 4: Invalid years
+        int day4 = 1, month4 = 1, year4 = 1800;
+        LocalDate expected4 = null;
+        LocalDate result4 = PreviousDate.getPreviousDate(day4, month4, year4);
+        assert result4 == expected4;
+	    }
+    }
+
+
 
 **Test Cases**
 | Test Case ID | Day | Month | Year | Expected Output |
@@ -46,6 +86,55 @@ Year:
 
 ## Program 1
 **Equivalence partition for linear search**
+
+      import org.junit.Test;
+      import static org.junit.Assert.*;
+
+      public class LinearSearchTest {
+
+        @Test
+        public void testExistingValue() {
+          int[] arr = {1, 2, 3, 4, 5};
+          int index = linearSearch(3, arr);
+          assertEquals(2, index);
+        }
+
+        @Test
+        public void testNonExistingValue() {
+          int[] arr = {1, 2, 3, 4, 5};
+          int index = linearSearch(6, arr);
+          assertEquals(-1, index);
+        }
+
+        @Test
+        public void testFirstElement() {
+          int[] arr = {1, 2, 3, 4, 5};
+          int index = linearSearch(1, arr);
+          assertEquals(0, index);
+        }
+
+        @Test
+        public void testLastElement() {
+          int[] arr = {1, 2, 3, 4, 5};
+          int index = linearSearch(5, arr);
+          assertEquals(4, index);
+        }
+
+        @Test
+        public void testEmptyArray() {
+          int[] arr = {};
+          int index = linearSearch(1, arr);
+          assertEquals(-1, index);
+        }
+
+        @Test
+        public void testNullArray() {
+          int[] arr = null;
+          int index = linearSearch(1, arr);
+          assertEquals(-1, index);
+        }
+      }
+
 | Tester Action and Input Data | Expected Outcome |
 |------------------------------|------------------|
 | [2, 4, 6, 8, 10], v = 2 | 0 |
@@ -74,6 +163,43 @@ Year:
 |[1,2,3,4,5,6,7,8,9,1,0,11,111], v = 1111| -1 |
 
 ## Program 2
+
+      package tests;
+
+      import static org.junit.Assert.*;
+      import org.junit.Test;
+
+      public class CountItemTest {
+
+        @Test
+          public void testValueCount() {
+            int[] arr = {1, 2, 2, 4, 5};
+            int count = CountItem.countItem(2, arr);
+            assertEquals(2, count);
+          }
+
+        @Test
+          public void testValueCount2() {
+            int[] arr = {1, 2, 2, 4,5,4,5,6,7,5,3,4};
+            int count = CountItem.countItem(4, arr);
+            assertEquals(3, count);
+          }
+
+        @Test
+          public void testEmptyArray() {
+            int[] arr = {};
+            int count = CountItem.countItem(5, arr);
+            assertEquals(0, count);
+          }
+
+        @Test
+          public void testEmptyArray2() {
+            int[] arr = {};
+            int count = CountItem.countItem(1, arr);
+            assertEquals(1, count);
+          }
+      }
+      
 **Equivalence Class partitioning for counting occurance**
 | Tester Action and Input Data | Expected Outcome |
 |------------------------------|------------------|
@@ -99,6 +225,43 @@ Year:
 
 ## Program 3
 **Equivalent testcases for binary search:**
+
+      package tests;
+
+      import static org.junit.Assert.*;
+      import org.junit.Test;
+
+      public class BinarySearchTest {
+
+        @Test
+          public void test1() {
+            int[] arr = {1, 2, 3, 4, 5,10,12};
+            int valueIdx = BinarySearch.binarySearch(5, arr);
+            assertEquals(4, valueIdx);
+          }
+
+        @Test
+          public void test2() {
+            int[] arr = {1, 2, 3, 4, 5,10,12};
+            int valueIdx = BinarySearch.binarySearch(12, arr);
+            assertEquals(6, valueIdx);
+          }
+
+        @Test
+          public void test3() {
+            int[] arr = {1, 2, 3, 4, 5,10,12};
+            int valueIdx = BinarySearch.binarySearch(6, arr);
+            assertEquals(0, valueIdx);
+          }
+
+        @Test
+          public void test4() {
+            int[] arr = {};
+            int valueIdx = BinarySearch.binarySearch(4, arr);
+            assertEquals(-1, valueIdx);
+          }
+      }
+
 | Tester Action and Input Data | Expected Outcome |
 |------------------------------|------------------|
 | [1, 21, 30, 40, 50], v = 21 | 1 |
@@ -126,6 +289,50 @@ Year:
 
 ## Program 4
 **Equivalent class test cases of checking the type of triangle**
+
+      package tests;
+
+      import static org.junit.Assert.*;
+      import org.junit.Test;
+
+      public class TriangleTest {
+
+         // invalid output
+        @Test
+          public void test1() {
+            int valueIdx =Triangle.triangle(0,0,0);
+            assertEquals(3, valueIdx);
+          }
+
+        //invalid
+        @Test
+          public void test2() {
+            int valueIdx =Triangle.triangle(3,4,8);
+            assertEquals(3, valueIdx);
+          }
+
+         // equilateral
+        @Test
+          public void tes3() {
+            int valueIdx =Triangle.triangle(100,100,100);
+            assertEquals(0, valueIdx);
+          }
+
+        // isosceles
+        @Test
+          public void test4() {
+            int valueIdx =Triangle.triangle(4,4,5);
+            assertEquals(1, valueIdx);
+          }
+
+        //scalene
+        @Test
+          public void test5() {
+            int valueIdx =Triangle.triangle(5,4,3);
+            assertEquals(2, valueIdx);
+          }
+      }
+
 | Tester Action and Input Data | Expected Outcome |
 |------------------------------|------------------|
 | a=2, b=2, c=2 | EQUILATERAL |
@@ -155,12 +362,53 @@ Year:
 
 ## Program 5
 **Equivalent test cases for prefix searching are as follows:**
+
+      package tests;
+
+      import static org.junit.Assert.*;
+      import org.junit.Test;
+
+      public class PrefixStringTest {
+
+        @Test
+        public void test1() {
+          String s1 = "ad";
+          String s2 = "aditya";
+          boolean isPrefix = PrefixString.prefix(s1, s2);
+          assertEquals(true,isPrefix);
+        }
+
+        @Test
+        public void test2() {
+          String s1 = "a";
+          String s2 = "aditya";
+          boolean isPrefix = PrefixString.prefix(s1, s2);
+          assertEquals(false,isPrefix);
+        }
+
+        @Test
+        public void test3() {
+          String s1 = "abcr";
+          String s2 = "a";
+          boolean isPrefix = PrefixString.prefix(s1, s2);
+          assertEquals(false,isPrefix);
+        }
+
+        @Test
+        public void test4() {
+          String s1 = "abc";
+          String s2 = "def";
+          boolean isPrefix = PrefixString.prefix(s1, s2);
+          assertEquals(true,isPrefix);
+        }
+      }
+      
 | Tester Action and Input Data | Expected Outcome |
 |------------------------------|------------------|
 | s1= "abcd", s2 = "abcd" | true |
 | s1 = "", s2 = "" | true |
-| s1 = "po", s2 = "poojan" | true |
-| s1 = "poo", s2 = "po" | false |
+| s1 = "ad", s2 = "aditya" | true |
+| s1 = "adi", s2 = "ad" | false |
 | s1 = "abc", s2 = "" | false |
 | s1 = "", s2 = "abc" | true |
 | s1 = "o", s2 = "ott" | true |
@@ -228,8 +476,8 @@ A = 0, B = -1, C = 10 <br/>
 ![control-flow-diagram drawio](https://github.com/adityaxv/Lab-7_202001404/blob/main/Copy%20of%20Untitled%20Diagram.drawio.png)
 
 
-**(2) Test Cases **
-**(a) Statement coverage test set: ** In this all the statements in code should be covered
+## (2) Test Cases **
+### (a) Statement coverage test set: ** In this all the statements in code should be covered
 <br/>
 | Test Number | Test Case |
 |-------------|-----------|
@@ -239,7 +487,7 @@ A = 0, B = -1, C = 10 <br/>
 | 4 | p has two points object with different x component |
 | 5 | p has three or more point object with different y component |
 
-**(b) Branch Coverage test set: ** In this all branch are taken atleast once
+### (b) Branch Coverage test set: ** In this all branch are taken atleast once
 <br/>
 
 | Test Number | Test Case |
@@ -254,7 +502,7 @@ A = 0, B = -1, C = 10 <br/>
 | 8 | p has three or more point object with all different x component |
 | 9 | p has three or more point object with some same and some different x component |
 
-**(c) Basic condition coverage test set: **Each boolean expression has been evaluated to both true and false
+### (c) Basic condition coverage test set: **Each boolean expression has been evaluated to both true and false
 
 | Test Number | Test Case |
 |-------------|-----------|
@@ -270,3 +518,5 @@ A = 0, B = -1, C = 10 <br/>
 | 10 | p has three or more point object with some same and some different y component |
 | 11 | p has three or more point object with all different y component |
 | 12 | p has three or more point object with all same y component |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
