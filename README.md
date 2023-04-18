@@ -476,9 +476,9 @@ A = 0, B = -1, C = 10 <br/>
 ![control-flow-diagram drawio](https://github.com/adityaxv/Lab-7_202001404/blob/main/Copy%20of%20Untitled%20Diagram.drawio.png)
 
 
-## (2) Test Cases **
-### (a) Statement coverage test set: ** In this all the statements in code should be covered
-<br/>
+## (2) Test Cases
+### (a) Statement coverage test set:  In this all the statements in code should be covered
+
 | Test Number | Test Case |
 |-------------|-----------|
 | 1 | p is empty array |
@@ -487,7 +487,7 @@ A = 0, B = -1, C = 10 <br/>
 | 4 | p has two points object with different x component |
 | 5 | p has three or more point object with different y component |
 
-### (b) Branch Coverage test set: ** In this all branch are taken atleast once
+### (b) Branch Coverage test set: In this all branch are taken atleast once
 <br/>
 
 | Test Number | Test Case |
@@ -502,7 +502,7 @@ A = 0, B = -1, C = 10 <br/>
 | 8 | p has three or more point object with all different x component |
 | 9 | p has three or more point object with some same and some different x component |
 
-### (c) Basic condition coverage test set: **Each boolean expression has been evaluated to both true and false
+### (c) Basic condition coverage test set: Each boolean expression has been evaluated to both true and false
 
 | Test Number | Test Case |
 |-------------|-----------|
